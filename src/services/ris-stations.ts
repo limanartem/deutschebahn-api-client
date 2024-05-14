@@ -6,7 +6,7 @@ const { DB_API_URL } = process.env;
 
 const getStations = async () => {
   if (!DB_API_URL) {
-    throw new Error('Missing environment variables!');
+    throw new Error('Missing environment variable DB_API_URL!');
   }
 
   const url = `${DB_API_URL}/ris-stations/v1/stations?limit=6000`;
