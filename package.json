@@ -1,0 +1,45 @@
+{
+  "name": "deutschebahn-api-client",
+  "version": "1.0.0",
+  "description": "Client for Deutschebahn APIs, see https://developers.deutschebahn.com/db-api-marketplace/apis/product ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc --build --verbose",
+    "test": "jest",
+    "stations-cache-update": "npx tsx src/utils/stations-cache-update.cli.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/limanartem"
+  },
+  "keywords": [
+    "api",
+    "db",
+    "deutschebahn",
+    "rest",
+    "xml"
+  ],
+  "author": "Artem Liman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "copyfiles": "^2.4.1",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-strict-plugin": "^2.4.3"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "geolib": "^3.3.4",
+    "protobufjs": "^7.3.0",
+    "xml2js": "^0.6.2"
+  }
+}

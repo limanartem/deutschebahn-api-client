@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+message Address {
+  string street = 1;
+  string houseNumber = 2;
+  string postalCode = 3;
+  string city = 4;
+  string state = 5;
+  string country = 6;
+}
+
+message Position {
+  double longitude = 1;
+  double latitude = 2;
+}
+
+message Station {
+  string stationID = 1;
+  string name = 2;
+  Address address = 3;
+  Position position = 4;
+}
+
+message StationList {
+  repeated Station stations = 1;
+}

@@ -1,0 +1,362 @@
+{
+    "offset": 0,
+    "limit": 10,
+    "total": 5691,
+    "stations": [
+        {
+            "stationID": "1",
+            "names": {
+                "DE": {
+                    "name": "Aachen Hbf"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Bahnhofstr.",
+                "houseNumber": "2a",
+                "postalCode": "52064",
+                "city": "Aachen",
+                "state": "Nordrhein-Westfalen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_2",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 4,
+                    "name": "RB West",
+                    "nameShort": "RB West"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 6.091499,
+                "latitude": 50.7678
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1000",
+            "names": {
+                "DE": {
+                    "name": "Burkhardswalde-Maxen"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Gesundbrunnen",
+                "houseNumber": "60c",
+                "postalCode": "01809",
+                "city": "Müglitztal-Burkhardswalde",
+                "state": "Sachsen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_7",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 2,
+                    "name": "RB Südost",
+                    "nameShort": "RB Südost"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 13.8383692,
+                "latitude": 50.9251456
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1001",
+            "names": {
+                "DE": {
+                    "name": "Burkhardtsdorf"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Bahnhofstraße",
+                "postalCode": "09235",
+                "city": "Burkhardtsdorf",
+                "state": "Sachsen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB Regio-Netze",
+                "organisationalUnit": {
+                    "id": 5,
+                    "name": "Erzgebirgsbahn (EGB)",
+                    "nameShort": "EGB"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "validFrom": "1970-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1002",
+            "names": {
+                "DE": {
+                    "name": "Bürstadt"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Bahnhofsallee",
+                "houseNumber": "17",
+                "postalCode": "68642",
+                "city": "Bürstadt",
+                "state": "Hessen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 5,
+                    "name": "RB Mitte",
+                    "nameShort": "RB Mitte"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 8.458188,
+                "latitude": 49.645769
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1005",
+            "names": {
+                "DE": {
+                    "name": "Buschow"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Bahnhofstr.",
+                "houseNumber": "28",
+                "postalCode": "14715",
+                "city": "Märkisch Luch OT Buschow",
+                "state": "Brandenburg",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 1,
+                    "name": "RB Ost",
+                    "nameShort": "RB Ost"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 12.628996,
+                "latitude": 52.592203
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1006",
+            "names": {
+                "DE": {
+                    "name": "Büsenbachtal"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Am Büsenbach",
+                "houseNumber": "16l",
+                "postalCode": "21256",
+                "city": "Handeloh-Wörme",
+                "state": "Niedersachsen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_7",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 3,
+                    "name": "RB Nord",
+                    "nameShort": "RB Nord"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 9.858592,
+                "latitude": 53.269595
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1008",
+            "names": {
+                "DE": {
+                    "name": "Büsum"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Heider Str.",
+                "houseNumber": "20",
+                "postalCode": "25761",
+                "city": "Büsum",
+                "state": "Schleswig-Holstein",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 3,
+                    "name": "RB Nord",
+                    "nameShort": "RB Nord"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 8.867113,
+                "latitude": 54.133822
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1009",
+            "names": {
+                "DE": {
+                    "name": "Buttenheim"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Am Bahnhof",
+                "houseNumber": "2",
+                "postalCode": "96146",
+                "city": "Altendorf",
+                "state": "Bayern",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 7,
+                    "name": "RB Süd",
+                    "nameShort": "RB Süd"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 11.0137296,
+                "latitude": 49.7993973
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1011",
+            "names": {
+                "DE": {
+                    "name": "Büttgen"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Driescher Birkhofstraße",
+                "houseNumber": "1",
+                "postalCode": "41564",
+                "city": "Kaarst",
+                "state": "Nordrhein-Westfalen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_6",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 4,
+                    "name": "RB West",
+                    "nameShort": "RB West"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 6.605785,
+                "latitude": 51.197208
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        },
+        {
+            "stationID": "1012",
+            "names": {
+                "DE": {
+                    "name": "Buttstädt"
+                }
+            },
+            "metropolis": {},
+            "address": {
+                "street": "Am Bahnhof",
+                "houseNumber": "7",
+                "postalCode": "99628",
+                "city": "Buttstädt",
+                "state": "Thüringen",
+                "country": "DE"
+            },
+            "stationCategory": "CATEGORY_7",
+            "availableTransports": [],
+            "availableLocalServices": [],
+            "transportAssociations": [],
+            "owner": {
+                "name": "DB InfraGO Personenbahnhöfe",
+                "organisationalUnit": {
+                    "id": 2,
+                    "name": "RB Südost",
+                    "nameShort": "RB Südost"
+                }
+            },
+            "countryCode": "DE",
+            "timeZone": "Europe/Berlin",
+            "position": {
+                "longitude": 11.418412,
+                "latitude": 51.126995
+            },
+            "validFrom": "2019-01-01T00:00:00Z"
+        }
+    ]
+}

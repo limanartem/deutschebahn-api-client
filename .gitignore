@@ -1,0 +1,27 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+dist
+obj
+bin
+publish 
+logs
+
+# dev
+/public/env-config.js
+env-config.js
+
+# misc
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.cer
+temp
