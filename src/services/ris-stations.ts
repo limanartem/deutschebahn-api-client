@@ -1,5 +1,5 @@
 import { getAuthHeaders } from '../utils/db-api-utils';
-import { RootObject } from '../models/stations';
+import { RootObject } from '../models/ris-stations';
 import fetch from 'cross-fetch';
 
 const { DB_API_URL } = process.env;

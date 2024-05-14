@@ -27,6 +27,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
     "copyfiles": "^2.4.1",
@@ -38,7 +39,8 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "typescript-strict-plugin": "^2.4.3"
+    "typescript-strict-plugin": "^2.4.3",
+    "undici": "^6.16.1"
   },
   "dependencies": {
     "cross-fetch": "^4.0.0",

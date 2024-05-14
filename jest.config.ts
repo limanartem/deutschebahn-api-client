@@ -1,4 +1,8 @@
 import type { Config } from '@jest/types';
+import fs from 'fs';
+import path from 'path';
+
+const rootDir = path.join(__dirname, '/src/.jest/');
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
@@ -16,6 +20,9 @@ const config: Config.InitialOptions = {
   passWithNoTests: true,
   roots: ['src/'],
   forceExit: true,
+  setupFiles: fs.readdirSync(rootDir).map((file) => path.join(rootDir, file)),
+
+  testEnvironment: './src/tests/undici-mockagent-fetch-jest.ts',
 };
 
 export default config;

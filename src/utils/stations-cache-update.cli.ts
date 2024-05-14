@@ -6,7 +6,7 @@
 
 import fs from 'fs';
 import 'dotenv/config';
-import { RootObject } from '../models/stations';
+import { RootObject } from '../models/ris-stations';
 import protobuf from 'protobufjs';
 import { measureAsync } from './metrics';
 import args from './args';
