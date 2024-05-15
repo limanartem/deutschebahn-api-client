@@ -71,31 +71,33 @@ describe('timetables', () => {
       const stationPlan = await getStationPlan(eva, { date, time1: time });
 
       expect(stationPlan.timetable).toBeDefined();
-      expect(stationPlan.timetable.station).toBe('Berlin Hbf');
-      expect(stationPlan.timetable.s).not.toBeUndefined();
-      expect(stationPlan.timetable.s).not.toBeNull();
+      expect(stationPlan.timetable?.stationName).toBe('Berlin Hbf');
+      expect(stationPlan.timetable?.stops).not.toBeUndefined();
+      expect(stationPlan.timetable?.stops).not.toBeNull();
 
-      const stop = stationPlan.timetable.s?.[0];
+      const stop = stationPlan.timetable?.stops?.[0];
       expect(stop).toMatchObject({
         id: '7731476269399949882-2405150937-10',
-        tl: {
-          f: 'N',
-          t: 'p',
-          o: '800165',
-          c: 'RE',
-          n: '3112',
+        tripLabel: {
+          flags: 'N',
+          type: 'p',
+          owner: '800165',
+          category: 'RE',
+          number: '3112',
         },
-        ar: {
-          pt: '2405151021',
-          pp: '12',
-          l: '2',
-          ppth: 'Nauen|Brieselang|Finkenkrug|Falkensee|Seegefeld|Albrechtshof|Berlin-Spandau|Berlin-Charlottenburg|Berlin Zoologischer Garten',
+        arrivalEvent: {
+          plannedTime: '2405151021',
+          plannedPlatform: '12',
+          line: '2',
+          plannedPath:
+            'Nauen|Brieselang|Finkenkrug|Falkensee|Seegefeld|Albrechtshof|Berlin-Spandau|Berlin-Charlottenburg|Berlin Zoologischer Garten',
         },
-        dp: {
-          pt: '2405151023',
-          pp: '12',
-          l: '2',
-          ppth: 'Berlin Friedrichstraße|Berlin Alexanderplatz|Berlin Ostbahnhof|Berlin Ostkreuz|Königs Wusterhausen|Brand Tropical Islands|Lübben(Spreewald)|Lübbenau(Spreewald)|Raddusch|Vetschau|Kolkwitz|Cottbus Hbf',
+        departureEvent: {
+          plannedTime: '2405151023',
+          plannedPlatform: '12',
+          line: '2',
+          plannedPath:
+            'Berlin Friedrichstraße|Berlin Alexanderplatz|Berlin Ostbahnhof|Berlin Ostkreuz|Königs Wusterhausen|Brand Tropical Islands|Lübben(Spreewald)|Lübbenau(Spreewald)|Raddusch|Vetschau|Kolkwitz|Cottbus Hbf',
         },
       });
     });
@@ -120,32 +122,34 @@ describe('timetables', () => {
       const stationPlan = await getStationPlan(eva, { date, time1: time });
 
       expect(stationPlan.timetable).toBeDefined();
-      expect(stationPlan.timetable.station).toBe('Berlin Hbf');
-      expect(stationPlan.timetable.s).not.toBeUndefined();
-      expect(stationPlan.timetable.s?.length).toBe(1);
-      expect(stationPlan.timetable.s).not.toBeNull();
+      expect(stationPlan.timetable).toBeDefined();
+      expect(stationPlan.timetable?.stationName).toBe('Berlin Hbf');
+      expect(stationPlan.timetable?.stops).not.toBeUndefined();
+      expect(stationPlan.timetable?.stops).not.toBeNull();
 
-      const stop = stationPlan.timetable.s?.[0];
+      const stop = stationPlan.timetable?.stops?.[0];
       expect(stop).toMatchObject({
         id: '7731476269399949882-2405150937-10',
-        tl: {
-          f: 'N',
-          t: 'p',
-          o: '800165',
-          c: 'RE',
-          n: '3112',
+        tripLabel: {
+          flags: 'N',
+          type: 'p',
+          owner: '800165',
+          category: 'RE',
+          number: '3112',
         },
-        ar: {
-          pt: '2405151021',
-          pp: '12',
-          l: '2',
-          ppth: 'Nauen|Brieselang|Finkenkrug|Falkensee|Seegefeld|Albrechtshof|Berlin-Spandau|Berlin-Charlottenburg|Berlin Zoologischer Garten',
+        arrivalEvent: {
+          plannedTime: '2405151021',
+          plannedPlatform: '12',
+          line: '2',
+          plannedPath:
+            'Nauen|Brieselang|Finkenkrug|Falkensee|Seegefeld|Albrechtshof|Berlin-Spandau|Berlin-Charlottenburg|Berlin Zoologischer Garten',
         },
-        dp: {
-          pt: '2405151023',
-          pp: '12',
-          l: '2',
-          ppth: 'Berlin Friedrichstraße|Berlin Alexanderplatz|Berlin Ostbahnhof|Berlin Ostkreuz|Königs Wusterhausen|Brand Tropical Islands|Lübben(Spreewald)|Lübbenau(Spreewald)|Raddusch|Vetschau|Kolkwitz|Cottbus Hbf',
+        departureEvent: {
+          plannedTime: '2405151023',
+          plannedPlatform: '12',
+          line: '2',
+          plannedPath:
+            'Berlin Friedrichstraße|Berlin Alexanderplatz|Berlin Ostbahnhof|Berlin Ostkreuz|Königs Wusterhausen|Brand Tropical Islands|Lübben(Spreewald)|Lübbenau(Spreewald)|Raddusch|Vetschau|Kolkwitz|Cottbus Hbf',
         },
       });
     });

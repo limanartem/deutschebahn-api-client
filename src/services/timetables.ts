@@ -1,6 +1,7 @@
 import { parseNumbers } from 'xml2js/lib/processors';
-import { StationResponse, PlanResponse } from '../models/timetables';
+import { StationResponse, planResponse, planDto } from '../models/timetables';
 import xml2js from 'xml2js';
+import { convertPlanResponseToDto } from '../models/timetables/transformations';
 
 const { DB_API_URL } = process.env;
 
@@ -58,7 +59,7 @@ type DateTime = {
 export const getStationPlan = async (
   stationEva: number,
   { date, time1 }: DateTime,
-): Promise<PlanResponse> => {
+): Promise<planDto.PlanResponse> => {
   const timeStr = time1.toString().padStart(2, '0');
   const dateStr = `${date.getFullYear().toString().slice(2)}${(date.getMonth() + 1)
     .toString()
@@ -78,6 +79,10 @@ export const getStationPlan = async (
     explicitArray: false,
   });
 
+  return convertPlanResponseToDto(normalizePlanResponse(data));
+};
+
+const normalizePlanResponse = (data: any): planResponse.PlanResponseInternal => {
   if (Array.isArray(data.timetable?.s)) {
     return data;
   } else {

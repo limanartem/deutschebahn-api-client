@@ -1,3 +1,7 @@
+export interface PlanResponse {
+  timetable?: Timetable;
+}
+
 /**
  * Represents a timetable, consisting of a set of TimetableStops and a potential Disruption.
  */
@@ -9,229 +13,229 @@ export interface Timetable {
   /** List of TimetableStop objects. */
   stops?: TimetableStop[];
   /** Station name. */
-  stationName: string;
+  stationName?: string;
 }
 
 /**
  * Represents a message associated with an event, a stop, or a trip.
  */
-interface Message {
+export interface Message {
   /** Code. */
-  code: number;
+  code?: number;
   /** Category. */
-  category: string;
+  category?: string;
   /** Deleted. */
-  deleted: number;
+  deleted?: number;
   /** List of distributor messages. */
-  distributorMessages: DistributorMessage[];
+  distributorMessages?: DistributorMessage[];
   /** External category. */
-  externalCategory: string;
+  externalCategory?: string;
   /** External link associated with the message. */
-  externalLink: string;
+  externalLink?: string;
   /** External text. */
-  externalText: string;
+  externalText?: string;
   /** Valid from timestamp. */
-  validFrom: string;
+  validFrom?: string;
   /** Message ID. */
-  id: string;
+  id?: string;
   /** Internal text. */
-  internalText: string;
+  internalText?: string;
   /** Owner. */
-  owner: string;
+  owner?: string;
   /** Priority. */
-  priority: string;
+  priority?: string;
   /** Message status. */
-  status: string;
+  status?: string;
   /** Trip label. */
-  tripLabel: TripLabel[];
+  tripLabel?: TripLabel[];
   /** Valid to timestamp. */
-  validTo: string;
+  validTo?: string;
   /** Timestamp. */
-  timestamp: string;
+  timestamp?: string;
 }
 
 /**
  * Represents an additional message to a given station-based disruption by a specific distributor.
  */
-interface DistributorMessage {
+export interface DistributorMessage {
   /** Internal text. */
-  internalText: string;
+  internalText?: string;
   /** Distributor name. */
-  name: string;
+  name?: string;
   /** Distributor type. */
-  type: 's' | 'r' | 'f' | 'x';
+  type?: 's' | 'r' | 'f' | 'x';
   /** Timestamp. */
-  timestamp: string;
+  timestamp?: string;
 }
 
 /**
  * Represents a compound data type that contains common data items that characterize a TripLabel.
  */
-interface TripLabel {
+export interface TripLabel {
   /** Trip category. */
-  category: string;
+  category?: string;
   /** Filter flags. */
-  flags: string;
+  flags?: string;
   /** Trip/train number. */
-  number: string;
+  number?: string;
   /** Owner. */
-  owner: string;
+  owner?: string;
   /** Trip type. */
-  type: 'p' | 'e' | 'z' | 's' | 'h' | 'n';
+  type?: 'p' | 'e' | 'z' | 's' | 'h' | 'n';
 }
 
 /**
  * Represents a stop in a timetable.
  */
-interface TimetableStop {
+export interface TimetableStop {
   /** Arrival event. */
-  arrivalEvent: StopEvent;
+  arrivalEvent?: StopEvent;
   /** List of connection elements. */
-  connections: ConnectionElement[];
+  connections?: ConnectionElement[];
   /** Departure event. */
-  departureEvent: StopEvent;
+  departureEvent?: StopEvent;
   /** EVA station code of the stop. */
-  evaStationCode: number;
+  evaStationCode?: number;
   /** Historic delay element. */
-  historicDelays: HistoricDelayElement[];
+  historicDelays?: HistoricDelayElement[];
   /** Historic platform change element. */
-  historicPlatformChanges: HistoricPlatformChangeElement[];
+  historicPlatformChanges?: HistoricPlatformChangeElement[];
   /** Unique identifier of the stop. */
-  id: string;
+  id?: string;
   /** List of messages associated with the stop. */
-  messages: Message[];
+  messages?: Message[];
   /** Reference to another trip. */
-  referenceTripRelation: ReferenceTripRelationElement;
+  referenceTripRelation?: ReferenceTripRelationElement;
   /** Reference trip relation. */
-  referenceTripRelations: ReferenceTripRelationElement[];
+  referenceTripRelations?: ReferenceTripRelationElement[];
   /** Trip label. */
-  tripLabel: TripLabel;
+  tripLabel?: TripLabel;
 }
 
 /**
  * Represents an event (arrival or departure) that is part of a stop.
  */
-interface StopEvent {
+export interface StopEvent {
   /** Changed distant endpoint. */
-  changedDistantEndpoint: string;
+  changedDistantEndpoint?: string;
   /** Cancellation time. */
-  cancellationTime: string;
+  cancellationTime?: string;
   /** Changed platform. */
-  changedPlatform: string;
+  changedPlatform?: string;
   /** Changed path. */
-  changedPath: string;
+  changedPath?: string;
   /** Event status. */
-  status: 'p' | 'a' | 'c';
+  status?: 'p' | 'a' | 'c';
   /** Changed time. */
-  changedTime: string;
+  changedTime?: string;
   /** Distant change. */
-  distantChange: number;
+  distantChange?: number;
   /** Hidden flag. */
-  hidden: number;
+  hidden?: number;
   /** Line indicator. */
-  line: string;
+  line?: string;
   /** List of messages associated with the event. */
-  messages: Message[];
+  messages?: Message[];
   /** Planned distant endpoint. */
-  plannedDistantEndpoint: string;
+  plannedDistantEndpoint?: string;
   /** Planned platform. */
-  plannedPlatform: string;
+  plannedPlatform?: string;
   /** Planned path. */
-  plannedPath: string;
+  plannedPath?: string;
   /** Planned status. */
-  plannedStatus: 'p' | 'a' | 'c';
+  plannedStatus?: 'p' | 'a' | 'c';
   /** Planned time. */
-  plannedTime: string;
+  plannedTime?: string;
   /** Transition. */
-  transition: string;
+  transition?: string;
   /** Wing. */
-  wings: string;
+  wings?: string;
 }
 
 /**
  * Represents information about a connected train at a particular stop.
  */
-interface ConnectionElement {
+export interface ConnectionElement {
   /** Connection status. */
-  status: 'w' | 'n' | 'a';
+  status?: 'w' | 'n' | 'a';
   /** EVA station number. */
-  evaStationNumber: number;
+  evaStationNumber?: number;
   /** Connection ID. */
-  id: string;
+  id?: string;
   /** Reference to the stop. */
-  referenceStop: TimetableStop;
+  referenceStop?: TimetableStop;
   /** Stop. */
-  stop: TimetableStop;
+  stop?: TimetableStop;
   /** Timestamp. */
-  timestamp: string;
+  timestamp?: string;
 }
 
 /**
  * Represents the history of all delay-messages for a stop.
  */
-interface HistoricDelayElement {
+export interface HistoricDelayElement {
   /** Arrival event. */
-  arrivalEvent: string;
+  arrivalEvent?: string;
   /** Detailed description of delay cause. */
-  delayCauseDescription: string;
+  delayCauseDescription?: string;
   /** Departure event. */
-  departureEvent: string;
+  departureEvent?: string;
   /** Delay source. */
-  delaySource: 'L' | 'NA' | 'NM' | 'V' | 'IA' | 'IM' | 'A';
+  delaySource?: 'L' | 'NA' | 'NM' | 'V' | 'IA' | 'IM' | 'A';
   /** Timestamp. */
-  timestamp: string;
+  timestamp?: string;
 }
 
 /**
  * Represents the history of all platform changes for a stop.
  */
-interface HistoricPlatformChangeElement {
+export interface HistoricPlatformChangeElement {
   /** Arrival platform. */
-  arrivalPlatform: string;
+  arrivalPlatform?: string;
   /** Detailed cause of track change. */
-  trackChangeCause: string;
+  trackChangeCause?: string;
   /** Departure platform. */
-  departurePlatform: string;
+  departurePlatform?: string;
   /** Timestamp. */
-  timestamp: string;
+  timestamp?: string;
 }
 
 /**
  * Represents how a reference trip is related to a stop.
  */
-interface ReferenceTripRelationElement {
+export interface ReferenceTripRelationElement {
   /** Reference trip. */
-  referenceTrip: ReferenceTrip;
+  referenceTrip?: ReferenceTrip;
   /** Relation to the stop. */
-  relation: 'b' | 'e' | 'c' | 's' | 'a';
+  relation?: 'b' | 'e' | 'c' | 's' | 'a';
 }
 
 /**
  * Represents a reference trip, which refers only to its referenced regular trip.
  */
-interface ReferenceTrip {
+export interface ReferenceTrip {
   /** Cancellation flag. */
-  cancellationFlag: boolean;
+  cancellationFlag?: boolean;
   /** Correspondent stop of the regular trip. */
-  correspondentStop: TripStop;
+  correspondentStop?: TripStop;
   /** Unique identifier of the reference trip. */
-  id: string;
+  id?: string;
   /** Characteristics of the reference trip. */
-  tripLabel: TripLabel;
+  tripLabel?: TripLabel;
   /** Stop data of the regular trip. */
-  stopData: TripStop;
+  stopData?: TripStop;
 }
 
 /**
  * Represents a stop of a regular or reference trip.
  */
-interface TripStop {
+export interface TripStop {
   /** EVA number of the stop. */
-  evaNumber: number;
+  evaNumber?: number;
   /** Index of the stop. */
-  index: number;
+  index?: number;
   /** Name of the stop. */
-  name: string;
+  name?: string;
   /** Planned time of the stop. */
-  plannedTime: string;
+  plannedTime?: string;
 }
