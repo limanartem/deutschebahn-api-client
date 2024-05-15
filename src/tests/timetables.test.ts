@@ -51,15 +51,15 @@ describe('timetables', () => {
     });
   });
   describe('getStationPlan', () => {
-    it('should return station timetable with multiple stops by station Eva, date and time', async () => {
-      const date = new Date();
-      const time = 9,
-        timeStr = time.toString().padStart(2, '0');
-      const eva = 8000001;
-      const dateStr = `${date.getFullYear().toString().slice(2)}${(date.getMonth() + 1)
-        .toString()
-        .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
+    const date = new Date();
+    const time = 9,
+      timeStr = time.toString().padStart(2, '0');
+    const eva = 8000001;
+    const dateStr = `${date.getFullYear().toString().slice(2)}${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
 
+    it('should return station timetable with multiple stops by station Eva, date and time', async () => {
       mockPool
         .intercept({
           path: `/api/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
@@ -103,14 +103,6 @@ describe('timetables', () => {
     });
 
     it('should return station timetable with single stop by station Eva, date and time', async () => {
-      const date = new Date();
-      const time = 9,
-        timeStr = time.toString().padStart(2, '0');
-      const eva = 8000001;
-      const dateStr = `${date.getFullYear().toString().slice(2)}${(date.getMonth() + 1)
-        .toString()
-        .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
-
       mockPool
         .intercept({
           path: `/api/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
