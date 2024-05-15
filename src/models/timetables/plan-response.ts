@@ -1,13 +1,17 @@
+export interface PlanResponse {
+  timetable: Timetable
+}
+
 /**
  * Represents a timetable, consisting of a set of TimetableStops and a potential Disruption.
  */
-export interface Timetable {
+interface Timetable {
   /** EVA station number. */
-  eva: number;
+  eva?: number;
   /** List of messages associated with the timetable. */
-  m: Message[];
+  m?: Message[];
   /** List of TimetableStop objects. */
-  s: TimetableStop[];
+  s?: TimetableStop[];
   /** Station name. */
   station: string;
 }

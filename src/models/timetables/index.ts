@@ -1,2 +1,3 @@
-export { StationResponse } from './station';
-export { Timetable } from './plan';
+export { StationResponse } from './station-response';
+export { PlanResponse } from './plan-response';
+export { Timetable } from './plan-dto';
