@@ -14,6 +14,9 @@ jobs:
           npm install
           
       - name: Integration tests
+        env:
+          DB_API_CLIENT_ID: ${{ secrets.DB_API_CLIENT_ID }}
+          DB_API_KEY: ${{ secrets.DB_API_KEY }}
         run: |
           npm run test:int
   
