@@ -2,6 +2,8 @@ import { parseNumbers } from 'xml2js/lib/processors';
 import { StationResponse, planResponse, planDto } from '../models/timetables';
 import xml2js from 'xml2js';
 import { convertPlanResponseToDto } from '../models/timetables/transformations';
+import { getAuthHeaders } from '../utils/db-api-utils';
+import fetch from 'cross-fetch';
 
 const { DB_API_URL } = process.env;
 
@@ -14,9 +16,15 @@ const { DB_API_URL } = process.env;
 export const getStation = async (pattern: string): Promise<StationResponse> => {
   const response = await fetch(
     `${DB_API_URL}/timetables/v1/station/${encodeURIComponent(pattern)}`,
+    {
+      method: 'GET',
+      headers: {
+        ...getAuthHeaders(),
+      },
+    },
   );
   if (!response.ok) {
-    throw new Error('Failed to fetch stations');
+    throw new Error('Failed to fetch stations: ' + (await response.text()));
   }
   const xmlData = await response.text();
   const data = await xml2js.parseStringPromise(xmlData, {
@@ -65,12 +73,19 @@ export const getStationPlan = async (
     .toString()
     .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
 
+  const url = `${DB_API_URL}/timetables/v1/plan/${stationEva}/${dateStr}/${timeStr}`;
   const response = await fetch(
-    `${DB_API_URL}/api/timetables/v1/plan/${stationEva}/${dateStr}/${timeStr}`,
+    url,
+    {
+      method: 'GET',
+      headers: {
+        ...getAuthHeaders(),
+      },
+    },
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch station plan');
+    throw new Error(`Failed to fetch station plan from ${url}: ` + (await response.text()));
   }
   const xmlData = await response.text();
   const data = await xml2js.parseStringPromise(xmlData, {

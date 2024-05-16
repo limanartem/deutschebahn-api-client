@@ -1,48 +1,60 @@
 import { getStation, getStationPlan } from '../services/timetables';
-import { Agent, Interceptable, MockAgent, setGlobalDispatcher } from 'undici';
 import { mockData } from './mock-data';
+import fetch from 'cross-fetch';
+
+jest.mock('cross-fetch', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 const { DB_API_URL } = process.env;
 
+const mockResponse = ({ text, json }: { text?: string | Buffer; json?: string | Buffer }) => {
+  (fetch as jest.Mock).mockImplementation(
+    () =>
+      Promise.resolve({
+        ok: true,
+        text: () => Promise.resolve(text),
+        json: () => Promise.resolve(json),
+      }) as any,
+  );
+};
+
 describe('timetables', () => {
-  let mockAgent: MockAgent;
-  let mockPool: Interceptable;
-
   beforeEach(() => {
-    mockAgent = new MockAgent();
-    mockPool = mockAgent.get(DB_API_URL!);
-
-    (global as any).setMockedFetchGlobalDispatcher(mockAgent);
-    mockAgent.disableNetConnect();
-
     jest.resetAllMocks();
-  });
-
-  afterEach(async () => {
-    await mockAgent.close();
-    setGlobalDispatcher(new Agent());
   });
 
   describe('getStation', () => {
     it('should return single station by pattern', async () => {
-      mockPool
-        .intercept({ path: '/timetables/v1/station/BLS', method: 'GET' })
-        .reply(200, () => mockData.timetables.station)
-        .persist();
+      mockResponse({ text: mockData.timetables.station });
 
       const stations = await getStation('BLS');
+
+      expect(fetch).toHaveBeenCalledWith(`${DB_API_URL}/timetables/v1/station/BLS`, {
+        method: 'GET',
+        headers: expect.objectContaining({
+          'db-api-key': expect.any(String),
+          'db-client-id': expect.any(String),
+        }),
+      });
       expect(stations.stations.station).toHaveLength(1);
       expect(stations.stations.station[0].name).toBe('Berlin Hbf');
       expect(stations.stations.station[0].eva).toBe(8011160);
     });
 
     it('should return multiple stations by pattern', async () => {
-      mockPool
-        .intercept({ path: '/timetables/v1/station/BLS', method: 'GET' })
-        .reply(200, () => mockData.timetables.stations)
-        .persist();
+      mockResponse({ text: mockData.timetables.stations });
 
       const stations = await getStation('BLS');
+
+      expect(fetch).toHaveBeenCalledWith(`${DB_API_URL}/timetables/v1/station/BLS`, {
+        method: 'GET',
+        headers: expect.objectContaining({
+          'db-api-key': expect.any(String),
+          'db-client-id': expect.any(String),
+        }),
+      });
       expect(stations.stations.station).toHaveLength(2);
       expect(stations.stations.station[0].name).toBe('Berlin Hbf 1');
       expect(stations.stations.station[0].eva).toBe(123456789);
@@ -60,15 +72,20 @@ describe('timetables', () => {
       .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}`;
 
     it('should return station timetable with multiple stops by station Eva, date and time', async () => {
-      mockPool
-        .intercept({
-          path: `/api/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
-          method: 'GET',
-        })
-        .reply(200, () => mockData.timetables.timetableMultiple)
-        .persist();
+      mockResponse({ text: mockData.timetables.timetableMultiple });
 
       const stationPlan = await getStationPlan(eva, { date, time1: time });
+
+      expect(fetch).toHaveBeenCalledWith(
+        `${DB_API_URL}/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
+        {
+          method: 'GET',
+          headers: expect.objectContaining({
+            'db-api-key': expect.any(String),
+            'db-client-id': expect.any(String),
+          }),
+        },
+      );
 
       expect(stationPlan.timetable).toBeDefined();
       expect(stationPlan.timetable?.stationName).toBe('Berlin Hbf');
@@ -103,16 +120,20 @@ describe('timetables', () => {
     });
 
     it('should return station timetable with single stop by station Eva, date and time', async () => {
-      mockPool
-        .intercept({
-          path: `/api/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
-          method: 'GET',
-        })
-        .reply(200, () => mockData.timetables.timetableSingle)
-        .persist();
+      mockResponse({ text: mockData.timetables.timetableSingle });
 
       const stationPlan = await getStationPlan(eva, { date, time1: time });
 
+      expect(fetch).toHaveBeenCalledWith(
+        `${DB_API_URL}/timetables/v1/plan/${eva}/${dateStr}/${timeStr}`,
+        {
+          method: 'GET',
+          headers: expect.objectContaining({
+            'db-api-key': expect.any(String),
+            'db-client-id': expect.any(String),
+          }),
+        },
+      );
       expect(stationPlan.timetable).toBeDefined();
       expect(stationPlan.timetable).toBeDefined();
       expect(stationPlan.timetable?.stationName).toBe('Berlin Hbf');

@@ -6,7 +6,7 @@ const rootDir = path.join(__dirname, '/src/.jest/');
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
-  //collectCoverage: true,
+    //collectCoverage: true,
   coverageThreshold: {
     global: {
       branches: 85,
@@ -21,8 +21,8 @@ const config: Config.InitialOptions = {
   roots: ['src/'],
   forceExit: true,
   setupFiles: fs.readdirSync(rootDir).map((file) => path.join(rootDir, file)),
-
-  testEnvironment: './src/tests/undici-mockagent-fetch-jest.ts',
+  testEnvironment: 'node',
+  runner: 'groups',
 };
 
 export default config;
