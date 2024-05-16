@@ -1,0 +1,19 @@
+name: e2e tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install
+        run: |
+          npm install
+          
+      - name: Integration tests
+        run: |
+          npm run test:int
+  
