@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 const __dirname = import.meta.dirname;
 
 const exports = {
@@ -43,6 +44,14 @@ const exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.proto', '.protobuf'],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+  ],
 };
 
 export default exports;
