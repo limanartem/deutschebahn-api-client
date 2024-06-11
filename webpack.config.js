@@ -2,13 +2,18 @@ import path from 'path';
 const __dirname = import.meta.dirname;
 
 const exports = {
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.ts',
+  },
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     libraryTarget: 'umd',
-    globalObject: 'this',
+    //library: 'MyLib',
+    umdNamedDefine: true,
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {

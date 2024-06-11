@@ -20,8 +20,12 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "isolatedModules": false
+    "isolatedModules": false,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+  
   },
-  "include": ["src", "src/.jest/protoFileTransformer.cjs"],
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "exclude": ["node_modules", ".jest"]
 }
