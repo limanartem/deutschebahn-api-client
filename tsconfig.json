@@ -1,26 +1,27 @@
 {
-  "compilerOptions": {
-    "module": "CommonJS",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "noEmit": false, 
-    "strict": true,
-    "plugins": [
-      {
-        "name": "typescript-strict-plugin"
-      }
-    ],
-    "paths": {
-      "*": ["node_modules/*"]
-    },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   },
-  "include": ["src/**/*"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "isolatedModules": false
+  },
+  "include": ["src", "src/.jest/protoFileTransformer.cjs"],
   "exclude": ["node_modules"]
 }

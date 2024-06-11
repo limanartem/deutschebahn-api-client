@@ -1,16 +1,16 @@
 import protobuf from 'protobufjs';
 import { Lazy } from './lazy';
-import { StationList } from '../models/stations.proto';
-import fs from 'fs';
-import { measure } from './metrics';
+import { StationList } from '../models/stations.types';
+import { measureAsync } from './metrics';
 import { isPointWithinRadius } from 'geolib';
+import stationsData from '../static/stations_update.protobuf';
+import stationsSchema from '../models/stations.proto';
 
-const stations = new Lazy<StationList>(() => {
-  return measure(() => {
-    const schema = protobuf.loadSync('src/models/stations.proto');
-    const StationList = schema.lookupType('StationList');
-    const buffer = fs.readFileSync('src/static/stations_update.protobuf');
-    return StationList.decode(buffer).toJSON() as StationList;
+const stations = new Lazy<StationList>(async () => {
+  return measureAsync(async () => {
+    const schema = await protobuf.parse(stationsSchema);
+    const StationList = schema.root.lookupType('StationList');
+    return StationList.decode(stationsData).toJSON() as StationList;
   }, 'Load stations cache duration');
 });
 
