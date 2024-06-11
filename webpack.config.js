@@ -31,8 +31,12 @@ const exports = {
         },
       },
       {
-        test: /\.(proto|protobuf)$/,
+        test: /\.(proto)$/,
         use: 'raw-loader',
+      },
+      {
+        test: /\.(protobuf)$/i,
+        use: 'binary-base64-loader',
       },
     ],
   },

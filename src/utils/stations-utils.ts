@@ -10,7 +10,7 @@ const stations = new Lazy<StationList>(async () => {
   return measureAsync(async () => {
     const schema = await protobuf.parse(stationsSchema);
     const StationList = schema.root.lookupType('StationList');
-    return StationList.decode(stationsData).toJSON() as StationList;
+    return StationList.decode(Buffer.from(stationsData, 'base64')).toJSON() as StationList;
   }, 'Load stations cache duration');
 });
 

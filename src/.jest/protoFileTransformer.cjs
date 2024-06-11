@@ -6,7 +6,7 @@ module.exports = {
     switch (path.extname(filename)) {
       case '.protobuf': {
         const content = fs.readFileSync(filename);
-        return { code: `module.exports = ${JSON.stringify(Array.from(content))}` };
+        return { code: `module.exports = ${JSON.stringify(content)}` };
       }
       case '.proto': {
         const content = fs.readFileSync(filename, 'utf8');

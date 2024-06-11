@@ -1,5 +1,5 @@
 declare module '*.protobuf' {
-  const content: Uint8Array;
+  const content: string;
   export default content;
 }
 
