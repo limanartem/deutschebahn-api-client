@@ -6,7 +6,7 @@ const rootDir = path.join(__dirname, '/src/.jest/');
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
-    //collectCoverage: true,
+  //collectCoverage: true,
   coverageThreshold: {
     global: {
       branches: 85,
@@ -23,6 +23,9 @@ const config: Config.InitialOptions = {
   setupFiles: fs.readdirSync(rootDir).map((file) => path.join(rootDir, file)),
   testEnvironment: 'node',
   runner: 'groups',
+  transform: {
+    '^.+\\.(proto|protobuf)?$': `${rootDir}/protoFileTransformer.cjs`,
+  },
 };
 
 export default config;

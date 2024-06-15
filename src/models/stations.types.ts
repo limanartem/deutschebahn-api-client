@@ -12,7 +12,7 @@ interface Position {
   latitude: number;
 }
 
-interface Station {
+export interface Station {
   stationID: string;
   name: string;
   address: Address;
